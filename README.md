@@ -10,3 +10,11 @@ Create a folder called credentials
   "TICKET_UUID": "<see_instruction>",
   "2FA": "<check_your_phone>"
 }
+## Running the project
+Set the FLASK_APP env variable to the entry class
+Run
+
+```
+flask run
+```
+Should start on port 5000
