@@ -15,7 +15,6 @@ def main():
   friends = Friend(token)
 
   while True:
-    print("loop")
     json_friends = friends.my_friends()
     print(json.dumps(json_friends))
     if is_playing_fifa(json_friends) and not saftblandare_triggered:
@@ -23,13 +22,12 @@ def main():
     time.sleep(15)
 
 
-
-
-
 def is_playing_fifa(data):
-  return True
+  trustly_username = "TrustlyStockholm"
+  return "Gang Beasts" in data[trustly_username]
 
 def trigger_saftblandare():
+  print("TRIGGERED")
   return True
 
 main()
