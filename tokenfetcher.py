@@ -4,7 +4,6 @@ import os
 
 
 class TokenLoader:
-
   tokens = None
 
   def _get_credentials_as_json(self):
@@ -13,7 +12,6 @@ class TokenLoader:
 
   def _fetch_and_write_token(self):
     logininfo = self._get_credentials_as_json()
-    print(json.dumps(logininfo))
     auth = Auth(
         logininfo['YOUR_EMAIL'],
         logininfo['YOUR_PASSWORD'],
@@ -35,7 +33,6 @@ class TokenLoader:
         "refresh": new_token_pair[1],
         "npsso": data['npsso'] # saved above!
       }
-      print(tokens)
       return tokens
 
   def get_tokens(self):
