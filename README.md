@@ -18,3 +18,14 @@ Run
 flask run
 ```
 Should start on port 5000
+
+## Building the GUI
+To build static files
+
+```
+npm run build
+```
+To start a local dev server
+```
+npm start
+```

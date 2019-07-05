@@ -13,7 +13,7 @@ let history = [
   }
 ];
 let historyItems = history.map((game) =>
-    <li>Game: {game.game} | Duration: {game.duration}</li>
+    <li><p>Game: {game.game}</p>  <p>Duration: {game.duration}</p></li>
 );
 
 function App() {

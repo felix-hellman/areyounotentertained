@@ -18,3 +18,15 @@
   color: #61dafb;
 }
 
+ul {
+  list-style-type: lower-roman;
+}
+
+li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+li p {
+  margin: 5px;
+}
