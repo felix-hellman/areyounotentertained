@@ -3,10 +3,9 @@ import './App.css';
 
 
 let click = () => {
-  fetch('http://localhost:5000/psn/played')
-  .then(data => data.json())
-  .then(jsonData => console.log(jsonData))
 };
+
+
 
 let history = [{
     "game":"fifa",
@@ -17,7 +16,7 @@ let history = [{
   }];
 
 let historyItems = history.map((game) =>
-    <li><p>Game: {game.game}</p>  <p>Duration: {game.duration}</p></li>
+    <li key={game.game}><p>Game: {game.game}</p>  <p>Duration: {game.duration}</p></li>
 );
 
 function GameList(){
@@ -38,9 +37,22 @@ function TestButton() {
       <button onClick={click}>Tetss</button>
   )
 }
+function getMostPlayed() {
+  console.log("Fetching most played");
+  fetch('http://localhost:5000/psn/mostplayed')
+  .then(data => data.json())
+  .then(jsonData => console.log(jsonData))
+}
 
-function App() {
-  return (
+
+class App extends React.Component{
+
+  componentDidMount(){
+    let pollingTimer = setInterval(() => getMostPlayed(), 5000)
+  }
+
+  render() {
+    return (
     <div className="App">
       <header className="App-header">
         <div>
@@ -52,7 +64,8 @@ function App() {
         </div>
       </header>
     </div>
-  );
+  )
+  }
 }
 
 export default App;
