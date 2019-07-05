@@ -29,3 +29,7 @@ To start a local dev server
 ```
 npm start
 ```
+
+
+![GitHub Logo](projecimt.jpg)
+
