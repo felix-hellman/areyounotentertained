@@ -6,7 +6,10 @@ import time
 from datetime import datetime
 
 from flask import Flask
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app)
 token_loader = tokenfetcher.TokenLoader()
 status = {}
 most_played = {}
@@ -22,7 +25,7 @@ def get_current_status():
   return json.dumps(status)
 
 
-@app.route("/internal/mostplayed")
+@app.route("/psn/mostplayed")
 def get_most_played():
     output = {}
     for game in sorted(most_played, key=most_played.get, reverse=True):
@@ -55,7 +58,7 @@ def start_poll_loop():
             most_played[game] = most_played[game] + ((dt.seconds / 100000) / 60 / 60)
         else:
             most_played[game] = dt.seconds / 100000 / 60 / 60
-    time.sleep(1)
+    time.sleep(15)
 
 thread = threading.Thread(target=start_poll_loop, args = [])
 thread.start()

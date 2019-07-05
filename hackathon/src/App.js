@@ -2,35 +2,41 @@ import React from 'react';
 import './App.css';
 
 
+let click = () => {
+  fetch('http://localhost:5000/psn/played')
+  .then(data => data.json())
+  .then(jsonData => console.log(jsonData))
+};
 
-let history = [
-  {
+let history = [{
     "game":"fifa",
     "duration": 12
-  },
-  {
+  }, {
     "game": "smash",
     "duration": 43
-  }
-];
+  }];
+
 let historyItems = history.map((game) =>
     <li><p>Game: {game.game}</p>  <p>Duration: {game.duration}</p></li>
 );
-class GameRow extends React.Component {
-  render() {
+
+function GameList(){
     return (
         <ul>{historyItems}</ul>
     )
-  }
 }
 
 let gameBeingPlayed = false;
-class GameStatus extends React.Component {
-  render() {
+function GameStatus() {
     return (
-        <p>Game Being Played {this.gameBeingPlayed ? "YES":"NO"}</p>
+        <p>Game Being Played {gameBeingPlayed ? "YES":"NO"}</p>
     )
-  }
+}
+
+function TestButton() {
+  return (
+      <button onClick={click}>Tetss</button>
+  )
 }
 
 function App() {
@@ -38,10 +44,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
+          <TestButton/>
           <GameStatus/>
         </div>
         <div>
-          <GameRow/>
+          <GameList/>
         </div>
       </header>
     </div>
