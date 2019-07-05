@@ -22,9 +22,14 @@ ul {
   list-style-type: lower-roman;
 }
 
+li:hover {
+  background-color: #a6d78c;
+  color:black;
+}
+
 li {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   border:1px solid white;
   border-radius: 5px;
