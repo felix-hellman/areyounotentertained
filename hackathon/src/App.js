@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 
-let gameBeingPlayed = false;
+
+
 let history = [
   {
     "game":"fifa",
@@ -15,18 +16,32 @@ let history = [
 let historyItems = history.map((game) =>
     <li><p>Game: {game.game}</p>  <p>Duration: {game.duration}</p></li>
 );
+class GameRow extends React.Component {
+  render() {
+    return (
+        <ul>{historyItems}</ul>
+    )
+  }
+}
+
+let gameBeingPlayed = false;
+class GameStatus extends React.Component {
+  render() {
+    return (
+        <p>Game Being Played {this.gameBeingPlayed ? "YES":"NO"}</p>
+    )
+  }
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <div>
-          Game Being Played? {gameBeingPlayed ? "YES" : "NO"}
+          <GameStatus/>
         </div>
         <div>
-          <ul>
-            {historyItems}
-          </ul>
+          <GameRow/>
         </div>
       </header>
     </div>

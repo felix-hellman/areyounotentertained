@@ -25,6 +25,10 @@ ul {
 li {
   display: flex;
   justify-content: space-evenly;
+
+  border:1px solid white;
+  border-radius: 5px;
+  min-width: 400px;
 }
 
 li p {
